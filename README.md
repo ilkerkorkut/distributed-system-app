@@ -3,7 +3,7 @@ The application should coordinate between the nodes and when clusters started it
 
 Some nodes start at exact time with others, some nodes may restart, and some nodes may join second or minutes later or some nodes never start.
 
-So decided to implement very very simple like raft consensus algorithm implementation. 
+So decided to implement very very simple version of raft consensus algorithm implementation. 
 
 #### Tech Info
 - gRPC is used for communication between nodes.
