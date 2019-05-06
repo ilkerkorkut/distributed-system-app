@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_outer_classname = "MessageProto";
+
+package rcp.models;
+
+message MessageRequest {
+    string nodeId = 1; // Current node's Id
+    string message = 2; // Any message
+    bool isVoteRequest = 3; // Is voting
+    bool isHeartbeat = 4; // Is heartbeat request
+    int32 nodeState = 5; // Current node's nodeState
+    int32 numberOfVotes = 6; // Current node's number of votes
+    int32 term = 7;
+    int32 port = 8;
+}
+
+message MessageReply {
+    string nodeId = 1; // Requested node's Id
+    string message = 2; // Any message from node
+    bool isVoted = 3; // Is requested node voted
+    int32 nodeState = 4; // Requested node's state
+    int32 numberOfVotes = 5;
+    int32 term = 6;
+    bool isHeartbeat = 7;
+    int32 port = 8;
+}
+
+service MessageService{
+    rpc send (MessageRequest) returns (MessageReply) {
+    }
+}
